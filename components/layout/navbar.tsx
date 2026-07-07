@@ -4,7 +4,10 @@ import { navLinks } from "../../lib/data/nav-links";
 
 export function Navbar() {
   return (
-    <nav className="flex items-center justify-between border-b border-neutral-200 px-6 py-3 dark:border-neutral-800">
+    <nav
+      className="flex items-center justify-between border-b px-6 py-3"
+      style={{ borderColor: "var(--nav-border)" }}
+    >
       <Link href="/" className="text-sm font-medium">
         Shimul Mahmud
       </Link>
@@ -13,7 +16,8 @@ export function Navbar() {
           <Link
             key={link.href}
             href={link.href}
-            className="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+            className="text-sm"
+            style={{ color: "var(--muted)" }}
           >
             {link.label}
           </Link>

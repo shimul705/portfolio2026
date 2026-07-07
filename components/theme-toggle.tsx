@@ -3,6 +3,12 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
+const options = [
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+  { value: "nft", label: "Vibrant" },
+];
+
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -12,35 +18,25 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="h-8 w-16 rounded-md border border-neutral-300 dark:border-neutral-700" />;
+    return <div className="h-8 w-40 rounded-md border border-[var(--nav-border)]" />;
   }
 
-  const isDark = theme === "dark";
-
   return (
-    <button
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label="Toggle theme"
-      className="flex items-center gap-1 rounded-md border border-neutral-300 p-1 dark:border-neutral-700"
-    >
-      <span
-        className={`rounded px-1.5 py-1 text-xs ${
-          !isDark
-            ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-            : "text-neutral-400"
-        }`}
-      >
-        Light
-      </span>
-      <span
-        className={`rounded px-1.5 py-1 text-xs ${
-          isDark
-            ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-            : "text-neutral-400"
-        }`}
-      >
-        Dark
-      </span>
-    </button>
+    <div className="flex items-center gap-1 rounded-md border border-[var(--nav-border)] p-1">
+      {options.map((option) => (
+        <button
+          key={option.value}
+          onClick={() => setTheme(option.value)}
+          className="rounded px-2 py-1 text-xs"
+          style={
+            theme === option.value
+              ? { background: "var(--accent)", color: "var(--button-fg)" }
+              : { color: "var(--muted)" }
+          }
+        >
+          {option.label}
+        </button>
+      ))}
+    </div>
   );
 }
