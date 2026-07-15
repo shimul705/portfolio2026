@@ -48,7 +48,7 @@ export function Hero() {
           <img
             src="/shimul4.png"
             alt="Shimul Mahmud"
-            className="h-auto w-96 rounded-2xl object-cover sm:w-[28rem]"
+            className="h-auto w-96 rounded-2xl object-cover sm:w-[40rem]"
           />
           <div
             className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-medium shadow-md"
