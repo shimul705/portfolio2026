@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
-      <div>
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-stretch">
+      <div className="flex flex-col justify-center">
         <p
           className="mb-3 font-mono text-sm"
           style={{ color: "var(--accent)" }}
@@ -38,9 +38,9 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative flex justify-center lg:justify-end">
+            <div className="relative flex justify-center lg:justify-end">
         <div
-          className="absolute -z-10 h-80 w-80 rounded-full opacity-25 blur-3xl sm:h-[26rem] sm:w-[26rem]"
+          className="absolute -z-10 h-64 w-64 rounded-full opacity-25 blur-3xl sm:h-80 sm:w-80"
           style={{ background: "var(--accent)" }}
         />
         <div className="relative">
@@ -48,7 +48,7 @@ export function Hero() {
           <img
             src="/shimul4.png"
             alt="Shimul Mahmud"
-            className="h-auto w-80 rounded-2xl object-cover sm:w-[26rem]"
+            className="h-auto w-64 rounded-2xl object-cover sm:w-80"
           />
           <div
             className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-medium shadow-md"
@@ -61,3 +61,8 @@ export function Hero() {
     </div>
   );
 }
+
+
+
+
+
