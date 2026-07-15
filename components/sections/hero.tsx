@@ -40,7 +40,7 @@ export function Hero() {
 
       <div className="relative flex justify-center lg:justify-end">
         <div
-          className="absolute -z-10 h-80 w-80 rounded-full opacity-25 blur-3xl sm:h-[26rem] sm:w-[26rem]"
+          className="absolute -z-10 h-96 w-96 rounded-full opacity-25 blur-3xl sm:h-[30rem] sm:w-[30rem]"
           style={{ background: "var(--accent)" }}
         />
         <div className="relative">
@@ -48,7 +48,7 @@ export function Hero() {
           <img
             src="/shimul4.png"
             alt="Shimul Mahmud"
-            className="h-auto w-80 rounded-2xl object-cover sm:w-[26rem]"
+            className="h-auto w-96 rounded-2xl object-cover sm:w-[28rem]"
           />
           <div
             className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-medium shadow-md"
