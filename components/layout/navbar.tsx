@@ -10,7 +10,7 @@ export function Navbar() {
 
   return (
     <nav
-      className="border-b px-6 py-3"
+      className="relative border-b px-6 py-3"
       style={{ borderColor: "var(--nav-border)" }}
     >
       <div className="flex items-center justify-between">
@@ -46,7 +46,10 @@ export function Navbar() {
 
       {/* Mobile menu panel */}
       {open && (
-        <div className="mt-4 flex flex-col gap-4 pb-2 lg:hidden">
+        <div
+          className="absolute left-0 right-0 top-full z-50 flex flex-col gap-4 border-b px-6 py-4 shadow-lg lg:hidden"
+          style={{ background: "var(--background)", borderColor: "var(--nav-border)" }}
+        >
           {navLinks.map((link) => (
             <Link
               key={link.href}
