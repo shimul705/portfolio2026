@@ -37,12 +37,7 @@ export interface CourseSkillGroup {
   courseName: string;
   groupLabel: string;
   skills: LearnedSkill[];
-  clipId: string;
+  clipId?: string; 
 }
 
-// Add this to the bottom of your types file:
-export interface SkillCardProps {
-  skill: LearnedSkill;
-  index?: number;
-  clipId: string; // 👈 This allows clipId to be passed
-}
+
