@@ -37,4 +37,5 @@ export interface CourseSkillGroup {
   courseName: string;
   groupLabel: string;
   skills: LearnedSkill[];
+  clipId: string;
 }
