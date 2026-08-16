@@ -16,7 +16,6 @@ export function SkillOriginCard({ group }: { group: CourseSkillGroup }) {
           <HexIcon
             key={skill.name}
             skill={skill}
-            clipId={`hex-${group.courseName}-${skill.name}`.replace(/\s+/g, "-")}
           />
         ))}
       </div>
