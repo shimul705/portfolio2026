@@ -10,7 +10,7 @@ export function EducationTimeline() {
           style={{ borderColor: "var(--card-border)" }}
         >
           <div
-            className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border"
+            className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border"
             style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

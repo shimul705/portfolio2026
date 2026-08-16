@@ -18,11 +18,11 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="h-8 w-44 rounded-md border border-[var(--nav-border)]" />;
+    return <div className="h-8 w-44 rounded-md border border-(--nav-border)" />;
   }
 
   return (
-    <div className="flex items-center gap-1 rounded-md border border-[var(--nav-border)] p-1">
+    <div className="flex items-center gap-1 rounded-md border border-(--nav-border) p-1">
       {options.map((option) => (
         <button
           key={option.value}

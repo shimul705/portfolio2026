@@ -6,6 +6,7 @@ export const skillOrigins: CourseSkillGroup[] = [
   {
     courseName: "Programming Hero",
     groupLabel: "Frontend",
+     clipId: "programming-hero-frontend",
     skills: [
       { name: "HTML", icon: `${DEVICON}/html5/html5-original.svg` },
       { name: "CSS", icon: `${DEVICON}/css3/css3-original.svg` },

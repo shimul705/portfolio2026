@@ -4,7 +4,7 @@ import type { CourseSkillGroup } from "../../types";
 export function TechBanner({ group }: { group: CourseSkillGroup }) {
   return (
     <div
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen px-6 py-16"
+      className="relative left-1/2 right-1/2 mx-[-50vw] w-screen px-6 py-16"
       style={{ background: "var(--banner-bg)" }}
     >
       <div className="mx-auto max-w-3xl text-center">
