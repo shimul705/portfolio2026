@@ -1,11 +1,18 @@
 import { Navbar } from "../../components/layout/navbar";
+import { EducationTimeline } from "../../components/sections/education-timeline";
+import { TechBanner } from "../../components/sections/tech-banner";
+import { skillOrigins } from "../../lib/data/skill-origins";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <main className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="mb-6 text-2xl font-medium">About</h1>
+        <h1 className="mb-2 text-2xl font-medium">About</h1>
+        <p className="mb-8 text-sm" style={{ color: "var(--muted)" }}>
+          Based in Bogura, Bangladesh.
+        </p>
+
         <div className="space-y-4 text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
           <p>
             I come from a CSE background combined with real experience in
@@ -29,15 +36,15 @@ export default function AboutPage() {
             reason I can talk about DevOps as something I have actually done,
             not just read about.
           </p>
-          <p>
-            On the development side, I have completed structured, project
-            based coursework covering the modern full-stack path: TypeScript,
-            React, Next.js, Node, Express, relational and document
-            databases, and AI-assisted engineering. I like building things
-            that are simple to use on the surface and solid underneath.
-          </p>
         </div>
+
+        <h2 className="mb-4 mt-14 text-lg font-medium">Education</h2>
+        <EducationTimeline />
       </main>
+
+      {skillOrigins.map((group) => (
+        <TechBanner key={group.courseName} group={group} />
+      ))}
     </div>
   );
 }

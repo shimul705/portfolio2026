@@ -18,3 +18,23 @@ export interface NavLink {
   label: string;
   href: string;
 }
+
+export interface EducationItem {
+  level: string;
+  institution: string;
+  location: string;
+  admissionYear: string;
+  passingYear: string;
+  logo: string;
+}
+
+export interface LearnedSkill {
+  name: string;
+  icon?: string;
+}
+
+export interface CourseSkillGroup {
+  courseName: string;
+  groupLabel: string;
+  skills: LearnedSkill[];
+}

@@ -9,7 +9,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       attribute="class"
       defaultTheme="system"
       enableSystem
-      themes={["light", "dark", "nft"]}
+      themes={["light", "dark", "digitalvai"]}
     >
       {children}
     </NextThemesProvider>

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const options = [
   { value: "light", label: "Light" },
   { value: "dark", label: "Dark" },
-  { value: "nft", label: "Vibrant" },
+  { value: "digitalvai", label: "DigitalVai" },
 ];
 
 export function ThemeToggle() {
@@ -18,7 +18,7 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="h-8 w-40 rounded-md border border-[var(--nav-border)]" />;
+    return <div className="h-8 w-44 rounded-md border border-[var(--nav-border)]" />;
   }
 
   return (
@@ -31,7 +31,7 @@ export function ThemeToggle() {
           style={
             theme === option.value
               ? { background: "var(--accent)", color: "var(--button-fg)" }
-              : { color: "var(--muted)" }
+              : { color: "var(--nav-muted)" }
           }
         >
           {option.label}
