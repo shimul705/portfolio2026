@@ -17,6 +17,13 @@ const typeMeta = {
   learning: { label: "Training", Icon: BookOpen, tone: "neutral" as const },
 };
 
+/** One colour per career stage, so achievements and roles are easy to match. */
+const roleTone: Record<string, "accent" | "success" | "warning"> = {
+  "Senior Officer (IT)": "accent",
+  "Assistant Engineer (IT)": "success",
+  "Software Development Intern": "warning",
+};
+
 export default function ExperiencePage() {
   return (
     <>
@@ -92,12 +99,21 @@ export default function ExperiencePage() {
 
       <section className="border-t border-border bg-surface py-16 sm:py-20">
         <Container className="max-w-4xl">
-          <SectionHeading eyebrow="Impact" title="Achievements" />
+          <SectionHeading
+            eyebrow="Impact"
+            title="Achievements"
+            description="Each one is tagged with the role where it happened, so you can see what I achieved at each stage of my career."
+          />
           <ul className="grid gap-3 sm:grid-cols-2">
             {achievements.map((a) => (
-              <li key={a} className="flex gap-3 rounded-2xl border border-border bg-background p-4 text-[15px] leading-relaxed">
+              <li key={a.text} className="flex gap-3 rounded-2xl border border-border bg-background p-4">
                 <Award size={18} className="mt-0.5 shrink-0 text-accent" />
-                <span className="text-muted">{a}</span>
+                <div>
+                  <p className="text-[15px] leading-relaxed text-muted">{a.text}</p>
+                  <Badge tone={roleTone[a.role] ?? "neutral"} className="mt-2.5">
+                    {a.role} · {a.org}
+                  </Badge>
+                </div>
               </li>
             ))}
           </ul>

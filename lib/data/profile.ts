@@ -37,14 +37,15 @@ export const heroStats: Stat[] = [
   { value: "B.Sc.", label: "Computer Science & Engineering" },
 ];
 
-export const achievements = [
-  "Managing the entire IT department independently",
-  "Developed enterprise software solutions currently used within the organization",
-  "Automated DSE market data collection and reporting",
-  "Developed multiple financial analysis tools for stock market operations",
-  "Built enterprise dashboards that improve business decision-making",
-  "Managing software development alongside enterprise IT infrastructure and networking",
-  "Delivered client training sessions that improved user adoption of POS features",
-  "Played a key role in POS–e-commerce synchronization before deployment",
-  "Handled frontend fixes for POS and B2B systems, ensuring stable, high-quality releases",
+/** Each achievement is tagged with the role (experience title) where it happened. */
+export const achievements: { text: string; role: string; org: string }[] = [
+  { text: "Managing the entire IT department independently", role: "Senior Officer (IT)", org: "CBC Capital" },
+  { text: "Managing software development alongside enterprise IT infrastructure and networking", role: "Senior Officer (IT)", org: "CBC Capital" },
+  { text: "Developed enterprise software solutions currently used within the organization", role: "Assistant Engineer (IT)", org: "CBC Capital" },
+  { text: "Automated DSE market data collection and reporting", role: "Assistant Engineer (IT)", org: "CBC Capital" },
+  { text: "Developed multiple financial analysis tools for stock market operations", role: "Assistant Engineer (IT)", org: "CBC Capital" },
+  { text: "Built enterprise dashboards that improve business decision-making", role: "Assistant Engineer (IT)", org: "CBC Capital" },
+  { text: "Delivered client training sessions that improved user adoption of POS features", role: "Software Development Intern", org: "ReformedTech" },
+  { text: "Played a key role in POS–e-commerce synchronization before deployment", role: "Software Development Intern", org: "ReformedTech" },
+  { text: "Handled frontend fixes for POS and B2B systems, ensuring stable, high-quality releases", role: "Software Development Intern", org: "ReformedTech" },
 ];
