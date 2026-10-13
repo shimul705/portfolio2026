@@ -8,7 +8,7 @@ export const educationItems: EducationItem[] = [
     location: "Dhaka, Bangladesh",
     admissionYear: "2019",
     passingYear: "2024",
-    result: "CGPA 2.81 / 5.00",
+    result: "CGPA 2.81 / 4.00",
   },
   {
     level: "College",
