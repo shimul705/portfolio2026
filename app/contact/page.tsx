@@ -19,7 +19,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Let's talk"
-        description="I'm open to full-time frontend, full-stack and junior DevOps roles. Email is the fastest way to reach me — I usually reply within a day."
+        description="I'm open to software engineering roles — frontend, full-stack and backend. Email is the fastest way to reach me — I usually reply within a day."
       />
 
       <section className="py-16 sm:py-20">
@@ -52,10 +52,11 @@ export default function ContactPage() {
             <h2 className="text-xl font-semibold tracking-tight">Quick facts</h2>
             <dl className="mt-6 space-y-4 text-sm">
               {[
-                ["Role", "Full-stack / frontend developer"],
-                ["Experience", "2+ years in IT & infrastructure"],
+                ["Role", "Software Engineer"],
+                ["Current", "Senior Officer (IT), CBC Capital"],
+                ["Experience", "2.5+ years, software & IT"],
                 ["Education", "B.Sc. in CSE, Green University of Bangladesh"],
-                ["Availability", "Open to full-time roles"],
+                ["Availability", "Open to software engineering roles"],
               ].map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 border-b border-border pb-4 last:border-0">
                   <dt className="text-muted">{k}</dt>
@@ -74,6 +75,13 @@ export default function ContactPage() {
               style={{ marginTop: "2rem" }}
             >
               <Download size={16} /> Download resume (PDF)
+            </a>
+            <a
+              href={profile.resumeDocxUrl}
+              download
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            >
+              <Download size={16} /> Word version (.docx)
             </a>
           </Card>
         </Container>

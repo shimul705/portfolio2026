@@ -20,6 +20,7 @@ export interface Profile {
   phone: string;
   availability: string;
   resumeUrl: string;
+  resumeDocxUrl: string;
   photo: string;
   socials: SocialLink[];
 }
@@ -32,8 +33,9 @@ export interface Stat {
 // ---------------------------------------------------------------------------
 // Projects
 // ---------------------------------------------------------------------------
-export type ProjectCategory = "assignment" | "case-study";
-export type ProjectStatus = "live" | "code" | "in-progress";
+export type ProjectCategory = "work" | "assignment" | "case-study";
+/** live = public demo, code = public repo only, internal = proprietary work software, in-progress = write-up coming */
+export type ProjectStatus = "live" | "code" | "internal" | "in-progress";
 
 export interface ProjectImage {
   src: string;
@@ -56,6 +58,10 @@ export interface Project {
   date?: string;
   /** e.g. "Assignment 3" — shown as a small label. */
   label?: string;
+  /** Free-text period for work projects, e.g. "2024 – 2025". */
+  period?: string;
+  /** Where it was built, e.g. the employer. */
+  context?: string;
   mark?: { score: number; total: number };
   techStack: string[];
   /** What the project does / key features. */

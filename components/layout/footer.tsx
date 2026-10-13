@@ -62,6 +62,10 @@ export function Footer() {
               <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
                 Resume (PDF)
               </a>
+              {" · "}
+              <a href={profile.resumeDocxUrl} download className="transition-colors hover:text-foreground">
+                Word
+              </a>
             </li>
           </ul>
         </div>

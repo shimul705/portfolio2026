@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ProjectGallery } from "../../../components/projects/project-gallery";
 import { CaseStudyCover, MarkBadge } from "../../../components/projects/project-card";
 import { ContactCta } from "../../../components/sections/contact-cta";
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Calendar, Check, GitHub, Wrench } from "../../../components/ui/icons";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, Briefcase, Calendar, Check, GitHub, Lock, Wrench } from "../../../components/ui/icons";
 import { Badge, ButtonLink, Card, Container } from "../../../components/ui/primitives";
 import { formatDate, getProject, projects } from "../../../lib/data/projects";
 
@@ -81,6 +81,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <div className="flex flex-wrap items-center gap-2">
             {project.label && <Badge tone="accent">{project.label}</Badge>}
             {project.status === "in-progress" && <Badge>Case study in progress</Badge>}
+            {project.status === "internal" && <Badge tone="accent">Professional work</Badge>}
             <MarkBadge project={project} />
           </div>
           <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{project.title}</h1>
@@ -92,6 +93,18 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <Calendar size={15} /> Completed {formatDate(project.date)}
             </p>
           )}
+          {project.context && (
+            <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-subtle">
+              <span className="inline-flex items-center gap-2">
+                <Briefcase size={15} /> {project.context}
+              </span>
+              {project.period && (
+                <span className="inline-flex items-center gap-2">
+                  <Calendar size={15} /> {project.period}
+                </span>
+              )}
+            </p>
+          )}
 
           <div className="mt-6">
             <p className="mb-2 font-mono text-xs uppercase tracking-[0.16em] text-subtle">Tech stack</p>
@@ -101,6 +114,16 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               ))}
             </div>
           </div>
+
+          {project.status === "internal" && (
+            <div className="mt-8 flex gap-3 rounded-2xl border border-border bg-surface-2 p-4 text-sm leading-relaxed text-muted">
+              <Lock size={17} className="mt-0.5 shrink-0 text-subtle" />
+              <p>
+                Proprietary software built for my employer and used in daily operations, so the code and live system
+                aren&apos;t public. I&apos;m happy to walk through how it works in an interview.
+              </p>
+            </div>
+          )}
 
           {(project.liveUrl || project.repoUrl) && (
             <div className="mt-8 flex flex-wrap gap-3">

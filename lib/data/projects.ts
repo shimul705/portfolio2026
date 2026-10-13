@@ -11,6 +11,127 @@ const shots = (slug: string, name: string, desktopCount: number, mobile = true) 
 
 export const projects: Project[] = [
   // -------------------------------------------------------------------------
+  // Professional work (internal software at CBC Capital & Equity Management)
+  // -------------------------------------------------------------------------
+  {
+    slug: "market-at-a-glance",
+    title: "Market at a Glance",
+    tagline: "Single-page stock market dashboard",
+    summary:
+      "A dashboard that puts the day's market on one screen — index, top gainers and losers, market statistics and the daily trading summary.",
+    description: [
+      "Market at a Glance is an internal single-page dashboard built for CBC Capital & Equity Management. It gives the team the state of the Dhaka Stock Exchange at a glance instead of digging through multiple sources.",
+      "It presents the market index, top gainers and losers, market statistics and daily trading information, with graphical visualizations that support day-to-day decisions.",
+    ],
+    category: "work",
+    status: "internal",
+    period: "2024 – 2025",
+    context: "CBC Capital & Equity Management Ltd.",
+    techStack: ["JavaScript", "Data visualization", "DSE market data", "Dashboards"],
+    highlights: [
+      "Market index and daily trading summary on a single page",
+      "Top gainers and top losers",
+      "Market statistics with graphical visualizations",
+      "Built to improve business decision-making",
+    ],
+    images: [],
+    featured: true,
+  },
+  {
+    slug: "dse-data-pull-automation",
+    title: "DSE Data Pull Automation",
+    tagline: "Automated market data collection & reporting",
+    summary:
+      "A Puppeteer-based workflow that collects Dhaka Stock Exchange data automatically and exports it to Excel, CSV and text reports.",
+    description: [
+      "Collecting daily market data by hand was slow and error-prone. I built an automated data-pull system with Puppeteer that gathers DSE market data and turns it into reports.",
+      "The workflow exports to Excel, CSV and text formats, so the data can feed other internal tools and the team's reporting.",
+    ],
+    category: "work",
+    status: "internal",
+    period: "2024 – 2025",
+    context: "CBC Capital & Equity Management Ltd.",
+    techStack: ["Node.js", "Puppeteer", "Excel automation", "CSV processing"],
+    highlights: [
+      "Headless-browser data collection with Puppeteer",
+      "Excel, CSV and text export",
+      "Replaces a manual daily process",
+      "Feeds internal dashboards and reports",
+    ],
+    images: [],
+    featured: true,
+  },
+  {
+    slug: "stock-market-analysis-toolkit",
+    title: "Stock Market Analysis Toolkit",
+    tagline: "Financial calculators for trading decisions",
+    summary:
+      "A collection of financial tools: RSI calculator, support & resistance detector, profit/loss & tax calculator, dividend yield and passive-income analysis.",
+    description: [
+      "A set of financial analysis tools built for stock market operations at CBC Capital & Equity Management.",
+      "It includes an RSI calculator, a support & resistance detector, a stock profit/loss and tax calculator, a dividend yield calculator and passive-income analysis.",
+    ],
+    category: "work",
+    status: "internal",
+    period: "2024 – 2025",
+    context: "CBC Capital & Equity Management Ltd.",
+    techStack: ["JavaScript", "Financial analysis", "Data visualization"],
+    highlights: [
+      "RSI calculator",
+      "Support & resistance detector",
+      "Profit/loss and tax calculator",
+      "Dividend yield and passive-income analysis",
+    ],
+    images: [],
+  },
+  {
+    slug: "office-management-system",
+    title: "Internal Office Management System",
+    tagline: "HRMS, petty cash & reporting modules",
+    summary:
+      "Business software modules covering HRMS, petty cash management, operational workflows, financial reports and internal reporting.",
+    description: [
+      "I developed new modules for the company's internal office management software, covering everyday business operations.",
+      "The modules include HRMS features, a petty cash management system, operational workflows, financial reports and internal reporting, with CSV, Excel and text exports.",
+    ],
+    category: "work",
+    status: "internal",
+    period: "2024 – 2025",
+    context: "CBC Capital & Equity Management Ltd.",
+    techStack: ["JavaScript", "Business software", "Reporting", "CSV / Excel export"],
+    highlights: [
+      "HRMS features",
+      "Petty cash management system",
+      "Operational workflows and financial reports",
+      "Data export to CSV, Excel and text",
+    ],
+    images: [],
+  },
+  {
+    slug: "stock-market-technologies",
+    title: "DSE & CDBL Integrations",
+    tagline: "Trading back-office technology",
+    summary:
+      "DSE integration, CDBL file processing, trading back-office management, financial data analysis and market automation.",
+    description: [
+      "Running the technology behind a brokerage's back office: maintaining Dhaka Stock Exchange (DSE) and Central Depository Bangladesh Limited (CDBL) integrations.",
+      "Daily trading data is processed into fixed-width (packed decimal) flat files for CDBL, alongside financial data analysis and market automation.",
+    ],
+    category: "work",
+    status: "internal",
+    period: "2024 – Present",
+    context: "CBC Capital & Equity Management Ltd.",
+    techStack: ["DSE integration", "CDBL file processing", "Back-office trading", "Automation"],
+    highlights: [
+      "Fixed-width (packed decimal) flat file generation for CDBL",
+      "DSE and CDBL operational integrations",
+      "Trading back-office management",
+      "Financial data analysis and market automation",
+    ],
+    images: [],
+  },
+
+  // -------------------------------------------------------------------------
   // Deployed projects (Programming Hero assignments, revisited in 2026)
   // -------------------------------------------------------------------------
   {
@@ -253,9 +374,11 @@ export const projects: Project[] = [
   },
 ];
 
+export const workProjects = projects.filter((p) => p.category === "work");
 export const deployedProjects = projects.filter((p) => p.category === "assignment");
 export const caseStudies = projects.filter((p) => p.category === "case-study");
-export const featuredProjects = projects.filter((p) => p.featured);
+export const featuredProjects = deployedProjects.filter((p) => p.featured);
+export const featuredWork = workProjects.filter((p) => p.featured);
 
 /** Assignments in the order they were built — the learning journey. */
 export const journey = [...deployedProjects].sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));

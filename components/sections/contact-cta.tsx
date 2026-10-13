@@ -19,7 +19,7 @@ export function ContactCta() {
             Looking for a developer who can build it <em className="not-italic text-accent">and</em> ship it?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed sm:text-base" style={{ color: "var(--banner-muted)" }}>
-            I&apos;m open to full-time frontend, full-stack and junior DevOps roles. The fastest way to reach me is email —
+            I&apos;m open to software engineering roles — frontend, full-stack and backend. The fastest way to reach me is email —
             I usually reply within a day.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

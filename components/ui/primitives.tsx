@@ -40,7 +40,8 @@ export function ButtonLink({
     buttonStyles[variant],
     className,
   );
-  if (external || href.startsWith("http") || href.startsWith("mailto:") || href.endsWith(".pdf")) {
+  // Plain <a> for external links, mailto and downloadable files (next/link would drop `download`).
+  if (external || rest.download !== undefined || /^(https?:|mailto:|tel:)/.test(href) || /\.(pdf|docx?)$/.test(href)) {
     return (
       <a
         href={href}

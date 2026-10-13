@@ -11,7 +11,7 @@ import { skillOrigins } from "../../lib/data/skills";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Shimul Mahmud — CSE graduate from Green University of Bangladesh, full-stack developer and IT professional in capital markets.",
+    "About Shimul Mahmud — Software Engineer and CSE graduate from Green University of Bangladesh, building enterprise software and stock-market technology.",
 };
 
 const softSkills = ["Communication", "Problem solving", "Adaptability", "Working under pressure", "Team player", "Ownership"];
@@ -19,7 +19,7 @@ const softSkills = ["Communication", "Problem solving", "Adaptability", "Working
 export default function AboutPage() {
   return (
     <>
-      <PageHeader eyebrow="About me" title="Developer with an operations mindset">
+      <PageHeader eyebrow="About me" title="Software engineer with an operations mindset">
         <p className="inline-flex items-center gap-2 text-sm text-muted">
           <MapPin size={15} /> {profile.location}
         </p>
@@ -29,26 +29,29 @@ export default function AboutPage() {
         <Container className="grid gap-12 lg:grid-cols-[1fr_340px] lg:gap-16">
           <div className="space-y-5 text-[17px] leading-relaxed text-muted">
             <p className="text-xl leading-relaxed text-foreground">
-              I come from a CSE background combined with real experience in capital markets, which gives me a slightly
-              unusual mix: I can build a product end to end, and I understand the operational and financial context it
-              needs to run in.
+              I&apos;m a software engineer with hands-on experience across web development, enterprise software, IT
+              infrastructure and stock-market technology. I like building products end to end — and I understand the
+              operational and financial context they need to run in.
             </p>
             <p>
-              Day to day, I work in an admin and IT role at a capital and equity management firm, where I am the sole
-              technical resource responsible for network infrastructure, server administration, backoffice trading
-              software, and general office systems. Alongside that, I run infrastructure and automation work under my own
-              small software effort.
+              My career path started as a <strong className="font-medium text-foreground">Software Development Intern at
+              ReformedTech</strong>, building features for the DokanE POS system (including its loyalty configuration
+              module) and contributing to the NINI and Ekhanei.com e-commerce platforms — working directly with clients
+              in an Agile team.
             </p>
             <p>
-              Outside of work, I have built and run a full self-hosted development platform from scratch: GitLab, project
-              management, Docker, and Nginx, all wired together with real CI/CD pipelines, on hardware I set up and
-              maintain myself. That project is the reason I can talk about DevOps as something I have actually done, not
-              just read about.
+              In 2024 I joined <strong className="font-medium text-foreground">CBC Capital &amp; Equity Management</strong> as
+              Assistant Engineer (IT), where I built internal software: HRMS and petty cash modules, a Puppeteer-based DSE
+              data pull system, the Market at a Glance dashboard and a toolkit of stock-market analysis calculators. Since
+              July 2025 I&apos;ve been <strong className="font-medium text-foreground">Senior Officer (IT)</strong> — the
+              company&apos;s sole IT professional, responsible for servers, networking, the back-office trading software,
+              DSE/CDBL integrations and the software that keeps the business running.
             </p>
             <p>
-              On the development side, I learned the web the structured way — through Programming Hero&apos;s Level 1 and
-              Level 2 programs — and I keep every graded project public, including the mistakes and how I fixed them later.
-              I care about shipping things that work, are documented, and that the next person can maintain.
+              Alongside work I&apos;m sharpening my full-stack skills through Programming Hero&apos;s Next Level Web Development
+              program (TypeScript, NestJS, PostgreSQL, Prisma, Docker, AWS), and I keep my graded projects public —
+              including the mistakes and how I fixed them later. I care about shipping software that works, is documented,
+              and that the next person can maintain.
             </p>
 
             <div className="pt-4">

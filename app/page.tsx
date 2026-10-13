@@ -4,9 +4,10 @@ import { StackMarquee } from "../components/sections/stack-marquee";
 import { LearningJourney } from "../components/sections/learning-journey";
 import { ContactCta } from "../components/sections/contact-cta";
 import { ProjectCard } from "../components/projects/project-card";
+import { WorkCard } from "../components/projects/work-card";
 import { ArrowRight, Briefcase, Check, Server } from "../components/ui/icons";
 import { Badge, ButtonLink, Card, Container, SectionHeading } from "../components/ui/primitives";
-import { featuredProjects } from "../lib/data/projects";
+import { featuredProjects, workProjects } from "../lib/data/projects";
 import { experienceItems } from "../lib/data/experience";
 import { infrastructureIntro, infrastructureStack } from "../lib/data/infrastructure";
 
@@ -18,12 +19,28 @@ export default function Home() {
       <Hero />
       <StackMarquee />
 
+      {/* Professional work */}
+      <section className="pt-20 sm:pt-24">
+        <Container>
+          <SectionHeading
+            eyebrow="Professional work"
+            title="Software I build and run at work"
+            description="Internal tools I built at CBC Capital & Equity Management — in daily use for trading operations, reporting and administration."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {workProjects.slice(0, 4).map((project) => (
+              <WorkCard key={project.slug} project={project} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Featured projects */}
       <section className="py-20 sm:py-24">
         <Container>
           <SectionHeading
-            eyebrow="Selected work"
-            title="Projects I've built and shipped"
+            eyebrow="Open source"
+            title="Projects you can try live"
             description="Live, responsive and documented — every project links to its source code and a write-up of what I built and learned."
             action={
               <ButtonLink href="/projects" variant="secondary">

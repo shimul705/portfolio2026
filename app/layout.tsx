@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Portfolio of Shimul Mahmud — full-stack developer (React, Next.js, Node, TypeScript) with hands-on IT, DevOps and self-hosted CI/CD experience. Based in Dhaka, Bangladesh.";
+  "Portfolio of Shimul Mahmud — Software Engineer (React, Next.js, Node.js, NestJS, PostgreSQL) building enterprise software, stock-market tools and IT infrastructure. Based in Dhaka, Bangladesh.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,8 +30,10 @@ export const metadata: Metadata = {
   authors: [{ name: profile.fullName, url: "https://github.com/shimul705" }],
   keywords: [
     "Shimul Mahmud",
+    "software engineer",
     "full-stack developer",
     "React developer",
+    "NestJS developer",
     "Next.js developer",
     "frontend developer Bangladesh",
     "DevOps",

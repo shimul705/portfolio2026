@@ -38,7 +38,10 @@ export function Hero() {
               View my work <ArrowRight size={16} />
             </ButtonLink>
             <ButtonLink href={profile.resumeUrl} variant="secondary">
-              <Download size={16} /> Download resume
+              <Download size={16} /> Resume (PDF)
+            </ButtonLink>
+            <ButtonLink href={profile.resumeDocxUrl} variant="ghost" download>
+              Word version
             </ButtonLink>
           </div>
 
@@ -82,11 +85,11 @@ export function Hero() {
           </div>
           <div className="absolute -bottom-4 left-2 rounded-2xl border border-border bg-surface px-4 py-3 shadow-lg sm:-left-6">
             <p className="text-xs text-subtle">Currently</p>
-            <p className="text-sm font-semibold">IT & Ops @ CBC Capital</p>
+            <p className="text-sm font-semibold">Senior Officer (IT) @ CBC Capital</p>
           </div>
           <div className="absolute right-2 top-8 rounded-2xl border border-border bg-surface px-4 py-3 shadow-lg sm:-right-5">
             <p className="text-xs text-subtle">Building with</p>
-            <p className="text-sm font-semibold">Next.js · Node · Docker</p>
+            <p className="text-sm font-semibold">React · NestJS · PostgreSQL</p>
           </div>
         </div>
       </Container>

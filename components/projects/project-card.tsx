@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "../../types";
 import { formatDate } from "../../lib/data/projects";
-import { ArrowUpRight, Award, Code, GitHub, Server, Sparkles } from "../ui/icons";
+import { ArrowUpRight, Award, BarChart, Bot, Code, GitHub, Layers, Lock, Server, Sparkles } from "../ui/icons";
 import { Badge, cn } from "../ui/primitives";
 
 export function MarkBadge({ project }: { project: Project }) {
@@ -16,9 +16,18 @@ export function MarkBadge({ project }: { project: Project }) {
   );
 }
 
-/** Placeholder cover for case studies that don't have screenshots yet. */
+function CoverIcon({ slug }: { slug: string }) {
+  if (/market|toolkit/.test(slug)) return <BarChart size={26} />;
+  if (/pull|automation/.test(slug)) return <Bot size={26} />;
+  if (/office/.test(slug)) return <Layers size={26} />;
+  if (/server|technologies/.test(slug)) return <Server size={26} />;
+  if (/ai-/.test(slug)) return <Sparkles size={26} />;
+  return <Code size={26} />;
+}
+
+/** Cover for projects without screenshots: internal work software and case studies in progress. */
 export function CaseStudyCover({ project, className }: { project: Project; className?: string }) {
-  const Icon = project.slug.includes("server") ? Server : project.slug.includes("ai") ? Sparkles : Code;
+  const caption = project.status === "internal" ? "Internal software" : "Case study in progress";
   return (
     <div
       className={cn(
@@ -33,9 +42,9 @@ export function CaseStudyCover({ project, className }: { project: Project; class
       />
       <div className="relative flex flex-col items-center gap-3 text-center">
         <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-surface text-accent shadow-sm">
-          <Icon size={26} />
+          <CoverIcon slug={project.slug} />
         </span>
-        <span className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">Case study in progress</span>
+        <span className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">{caption}</span>
       </div>
     </div>
   );
@@ -63,6 +72,11 @@ export function ProjectCard({ project, priority = false }: { project: Project; p
         )}
         <div className="absolute left-3 top-3 flex gap-2">
           {project.status === "in-progress" && <Badge className="bg-surface/90 backdrop-blur">In progress</Badge>}
+          {project.status === "internal" && (
+            <Badge className="bg-surface/90 backdrop-blur">
+              <Lock size={11} /> Professional work
+            </Badge>
+          )}
           {project.label && <Badge className="bg-surface/90 backdrop-blur">{project.label}</Badge>}
         </div>
       </div>
@@ -86,7 +100,9 @@ export function ProjectCard({ project, priority = false }: { project: Project; p
         </div>
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-5 text-sm">
-          <span className="text-xs text-subtle">{project.date ? formatDate(project.date) : "Coming soon"}</span>
+          <span className="text-xs text-subtle">
+            {project.date ? formatDate(project.date) : project.period ?? "Coming soon"}
+          </span>
           <div className="relative z-10 flex items-center gap-3">
             {project.repoUrl && (
               <a

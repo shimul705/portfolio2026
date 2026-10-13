@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { ProjectCard } from "../../components/projects/project-card";
+import { WorkCard } from "../../components/projects/work-card";
 import { LearningJourney } from "../../components/sections/learning-journey";
 import { ContactCta } from "../../components/sections/contact-cta";
 import { Container, PageHeader, SectionHeading } from "../../components/ui/primitives";
-import { caseStudies, deployedProjects } from "../../lib/data/projects";
+import { caseStudies, deployedProjects, workProjects } from "../../lib/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -17,8 +18,23 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Projects"
         title="Things I've built"
-        description="Deployed projects with live demos and source code, plus case studies I'm writing up from my infrastructure and full-stack work."
+        description="Software I build professionally, deployed projects with live demos and source code, and case studies I'm writing up."
       />
+
+      <section className="pt-16 sm:pt-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Professional work"
+            title="Built at work"
+            description="Internal software at CBC Capital & Equity Management. The code is proprietary, so each page describes what it does and how it was built."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {workProjects.map((project) => (
+              <WorkCard key={project.slug} project={project} />
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <section className="py-16 sm:py-20">
         <Container>

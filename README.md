@@ -1,6 +1,6 @@
 # 👨‍💻 Shimul Mahmud — Developer Portfolio
 
-My personal portfolio: a fast, fully static **Next.js 16 + TypeScript + Tailwind CSS v4** site that presents my projects, skills, experience and the self-hosted infrastructure I run.
+My personal portfolio as a Software Engineer: a fast, fully static **Next.js 16 + TypeScript + Tailwind CSS v4** site that presents my projects, skills, experience and the self-hosted infrastructure I run.
 
 <p>
   <a href="https://shimul-portfolio2026.vercel.app/"><img alt="Live Site" src="https://img.shields.io/badge/Live-Site-2563EB?style=for-the-badge&logo=vercel&logoColor=white"></a>
@@ -24,6 +24,8 @@ My personal portfolio: a fast, fully static **Next.js 16 + TypeScript + Tailwind
 ## ✨ Features
 
 - **Data-driven content:** every page is generated from typed data files in `lib/data/`, so updating the portfolio means editing data, not markup.
+- **Professional work:** internal tools I built at CBC Capital & Equity Management (dashboards, automation, HRMS), described without exposing proprietary code.
+- **Resume download:** PDF and Word versions, plus an in-page preview.
 - **Project case pages:** each project gets its own statically generated page with a screenshot gallery (desktop and mobile), features, what I learned, and a **2026 update** section listing the fixes I made when I revisited it.
 - **Learning journey timeline:** my Programming Hero assignments shown in build order, one new skill per step.
 - **3 themes:** Light, Dark and DigitalVai, through `next-themes`. The default follows the visitor's OS setting.
@@ -70,7 +72,7 @@ portfolio2026/
 ├── types/index.ts            # Shared TypeScript types
 └── public/
     ├── projects/<slug>/      # Project screenshots (desktop-N.jpg, mobile.jpg)
-    ├── portfolio.pdf         # Resume
+    ├── Shimul_Mahmud_Resume.pdf / .docx   # Resume (PDF + Word)
     └── portrait.jpg  shimul*.png
 ```
 
@@ -84,7 +86,7 @@ portfolio2026/
 | Add a project | Add an entry to `lib/data/projects.ts`, and put screenshots in `public/projects/<slug>/` |
 | Experience / education | `lib/data/experience.ts`, `lib/data/education.ts` |
 | Skills and course banners | `lib/data/skills.ts` |
-| Resume | Replace `public/portfolio.pdf` |
+| Resume | Replace `public/Shimul_Mahmud_Resume.docx` and export it to `Shimul_Mahmud_Resume.pdf` (same name) |
 | Colours | The theme tokens at the top of `app/globals.css` |
 
 ---

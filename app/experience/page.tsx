@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { ContactCta } from "../../components/sections/contact-cta";
-import { BookOpen, Briefcase, MapPin, Sparkles } from "../../components/ui/icons";
-import { Badge, Card, Container, PageHeader } from "../../components/ui/primitives";
+import { ArrowRight, Award, BookOpen, Briefcase, MapPin, Sparkles } from "../../components/ui/icons";
+import { Badge, Card, Container, PageHeader, SectionHeading } from "../../components/ui/primitives";
 import { experienceItems } from "../../lib/data/experience";
+import { achievements } from "../../lib/data/profile";
 
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "Work experience of Shimul Mahmud: IT & operations at CBC Capital & Equity Management, SQA internship at ReformedTech, and full-stack training.",
+    "Career path of Shimul Mahmud: Software Development Intern at ReformedTech, then Assistant Engineer (IT) and Senior Officer (IT) at CBC Capital & Equity Management.",
 };
 
 const typeMeta = {
@@ -21,9 +22,25 @@ export default function ExperiencePage() {
     <>
       <PageHeader
         eyebrow="Experience"
-        title="Where I've worked and trained"
-        description="Professional IT experience, a QA internship in a software team, and structured full-stack training."
-      />
+        title="My career path"
+        description="From building POS and e-commerce features as an intern, to writing enterprise software and running the entire IT department of a capital-markets firm."
+      >
+        <ol className="flex flex-wrap items-center gap-2 text-sm">
+          {experienceItems
+            .filter((e) => e.type !== "learning")
+            .slice()
+            .reverse()
+            .map((e, i, arr) => (
+              <li key={e.title} className="flex items-center gap-2">
+                <span className="rounded-full border border-border bg-surface px-3 py-1.5">
+                  <span className="font-medium">{e.title}</span>
+                  <span className="text-subtle"> · {e.period.split(" – ")[0]}</span>
+                </span>
+                {i < arr.length - 1 && <ArrowRight size={15} className="text-subtle" />}
+              </li>
+            ))}
+        </ol>
+      </PageHeader>
 
       <section className="py-16 sm:py-20">
         <Container className="max-w-4xl">
@@ -73,7 +90,23 @@ export default function ExperiencePage() {
         </Container>
       </section>
 
-      <ContactCta />
+      <section className="border-t border-border bg-surface py-16 sm:py-20">
+        <Container className="max-w-4xl">
+          <SectionHeading eyebrow="Impact" title="Achievements" />
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {achievements.map((a) => (
+              <li key={a} className="flex gap-3 rounded-2xl border border-border bg-background p-4 text-[15px] leading-relaxed">
+                <Award size={18} className="mt-0.5 shrink-0 text-accent" />
+                <span className="text-muted">{a}</span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <div className="mt-24">
+        <ContactCta />
+      </div>
     </>
   );
 }
