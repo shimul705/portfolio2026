@@ -1,32 +1,26 @@
-import { Navbar } from "../../components/layout/navbar";
+import type { Metadata } from "next";
+import { Download } from "../../components/ui/icons";
+import { ButtonLink, Container, PageHeader } from "../../components/ui/primitives";
+import { profile } from "../../lib/data/profile";
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description: "Resume of Shimul Mahmud — full-stack developer.",
+};
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        <div className="mb-6 flex items-center justify-between">
-          <h1 className="text-2xl font-medium">Resume</h1>
-          <a
-            href="/portfolio.pdf"
-            download
-            className="rounded-md px-4 py-2 text-sm font-medium"
-            style={{ background: "var(--button-bg)", color: "var(--button-fg)" }}
-          >
-            Download PDF
-          </a>
+    <>
+      <PageHeader eyebrow="Resume" title="Resume" description="Preview below, or download the PDF.">
+        <ButtonLink href={profile.resumeUrl} download>
+          <Download size={16} /> Download PDF
+        </ButtonLink>
+      </PageHeader>
+      <Container className="py-12">
+        <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
+          <iframe src={profile.resumeUrl} className="h-[85vh] w-full" title={`${profile.name} resume`} />
         </div>
-        <div
-          className="overflow-hidden rounded-lg border"
-          style={{ borderColor: "var(--card-border)" }}
-        >
-          <iframe
-            src="/portfolio.pdf"
-            className="h-[80vh] w-full"
-            title="Resume preview"
-          />
-        </div>
-      </main>
-    </div>
+      </Container>
+    </>
   );
 }

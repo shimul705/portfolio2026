@@ -1,76 +1,166 @@
 @import "tailwindcss";
 
+/* Class-based dark variant so `dark:` follows next-themes, not the OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------------ */
+/* Design tokens — one set per theme (light / dark / digitalvai)            */
+/* ------------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --muted: #737373;
-  --nav-border: #e5e5e5;
-  --card-bg: #f5f5f5;
-  --card-border: #e5e5e5;
+  --background: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #f4f4f5;
+  --border: #e4e4e7;
+  --foreground: #09090b;
+  --muted: #52525b;
+  --subtle: #71717a;
   --accent: #2563eb;
-  --button-bg: #171717;
-  --button-fg: #ffffff;
-  --nav-bg: var(--background);
+  --accent-strong: #1d4ed8;
+  --accent-fg: #ffffff;
+  --accent-soft: rgb(37 99 235 / 0.09);
+  --success: #15803d;
+  --success-soft: rgb(21 128 61 / 0.1);
+  --warning: #b45309;
+  --warning-soft: rgb(180 83 9 / 0.1);
+  --nav-bg: rgb(255 255 255 / 0.78);
   --nav-fg: var(--foreground);
   --nav-muted: var(--muted);
-  --banner-bg: #f5f5f5;
-  --banner-fg: #171717;
-  --banner-muted: #737373;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --banner-bg: #0f172a;
+  --banner-fg: #f8fafc;
+  --banner-muted: #94a3b8;
+  --glow: rgb(37 99 235 / 0.18);
+  --grid-line: rgb(9 9 11 / 0.05);
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --muted: #a3a3a3;
-  --nav-border: #262626;
-  --card-bg: #171717;
-  --card-border: #262626;
+  --background: #09090b;
+  --surface: #111113;
+  --surface-2: #18181b;
+  --border: #27272a;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --subtle: #71717a;
   --accent: #60a5fa;
-  --button-bg: #ffffff;
-  --button-fg: #171717;
-  --nav-bg: var(--background);
-  --nav-fg: var(--foreground);
-  --nav-muted: var(--muted);
-  --banner-bg: #171717;
-  --banner-fg: #ededed;
-  --banner-muted: #a3a3a3;
+  --accent-strong: #93c5fd;
+  --accent-fg: #0b1220;
+  --accent-soft: rgb(96 165 250 / 0.12);
+  --success: #4ade80;
+  --success-soft: rgb(74 222 128 / 0.12);
+  --warning: #fbbf24;
+  --warning-soft: rgb(251 191 36 / 0.12);
+  --nav-bg: rgb(17 17 19 / 0.75);
+  --banner-bg: #111113;
+  --banner-fg: #fafafa;
+  --banner-muted: #a1a1aa;
+  --glow: rgb(96 165 250 / 0.16);
+  --grid-line: rgb(250 250 250 / 0.045);
 }
 
 .digitalvai {
   --background: #f5f6fb;
+  --surface: #ffffff;
+  --surface-2: #eeeef8;
+  --border: #e2e2f0;
   --foreground: #1a1a2e;
   --muted: #5b5b76;
-  --nav-border: #2a1a5e;
-  --card-bg: #ffffff;
-  --card-border: #e2e2f0;
+  --subtle: #7a7a96;
   --accent: #4b2fb3;
-  --button-bg: #3d1f99;
-  --button-fg: #ffffff;
-  --nav-bg: #130c33;
-  --nav-fg: #cfc9f0;
-  --nav-muted: #9b8fd6;
+  --accent-strong: #3d1f99;
+  --accent-fg: #ffffff;
+  --accent-soft: rgb(75 47 179 / 0.09);
+  --success: #15803d;
+  --success-soft: rgb(21 128 61 / 0.1);
+  --warning: #b45309;
+  --warning-soft: rgb(180 83 9 / 0.1);
+  --nav-bg: rgb(19 12 51 / 0.92);
+  --nav-fg: #ffffff;
+  --nav-muted: #cfc9f0;
   --banner-bg: #241463;
   --banner-fg: #ffffff;
   --banner-muted: #c8bff0;
+  --glow: rgb(75 47 179 / 0.18);
+  --grid-line: rgb(26 26 46 / 0.05);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Base                                                                     */
+/* ------------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Subtle grid background used behind the hero. */
+.bg-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Motion                                                                   */
+/* ------------------------------------------------------------------------ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Floating hexagon icons (About page skill banners). */
 @keyframes hexFloat {
   0% { transform: translateY(0); }
-  50% { transform: translateY(20px); }
+  50% { transform: translateY(14px); }
   100% { transform: translateY(0); }
 }
 
@@ -98,32 +188,14 @@ body {
   left: 0;
 }
 
-.hexagon-shape::before {
-  transform: rotate(60deg);
-}
+.hexagon-shape::before { transform: rotate(60deg); }
+.hexagon-shape::after { transform: rotate(-60deg); }
 
-.hexagon-shape::after {
-  transform: rotate(-60deg);
-}
-
-@keyframes navUnderline {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-.nav-link-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  height: 2px;
-  width: 100%;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-
-.nav-link-underline:hover::after {
-  transform: scaleX(1);
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-fade-up,
+  .animate-marquee,
+  [style*="hexFloat"] {
+    animation: none !important;
+  }
 }

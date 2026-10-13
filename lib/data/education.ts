@@ -1,30 +1,38 @@
 import type { EducationItem } from "../../types";
 
-// Replace institution names, years, and logo paths with your real details.
-// Drop your real circular logos into public/logos/ and update the paths below.
 export const educationItems: EducationItem[] = [
   {
-    level: "School",
-    institution: "Your School Name",
-    location: "Bogura, Bangladesh",
-    admissionYear: "20XX",
-    passingYear: "20XX",
-    logo: "/logos/school-logo.png",
+    level: "University",
+    degree: "B.Sc. in Computer Science & Engineering",
+    institution: "Green University of Bangladesh",
+    location: "Dhaka, Bangladesh",
+    admissionYear: "2019",
+    passingYear: "2024",
+    result: "CGPA 3.33 / 4.00",
   },
   {
     level: "College",
-    institution: "Your College Name",
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "Govt. Shah Sultan College",
     location: "Bogura, Bangladesh",
-    admissionYear: "20XX",
-    passingYear: "20XX",
-    logo: "/logos/college-logo.png",
+    admissionYear: "2017",
+    passingYear: "2019",
+    result: "GPA 4.50 / 5.00",
   },
   {
-    level: "University",
-    institution: "Your University Name",
-    location: "Bangladesh",
-    admissionYear: "20XX",
-    passingYear: "20XX",
-    logo: "/logos/university-logo.png",
+    level: "School",
+    degree: "Secondary School Certificate (SSC)",
+    institution: "Bogra Zilla School",
+    location: "Bogura, Bangladesh",
+    admissionYear: "2009",
+    passingYear: "2017",
+    result: "GPA 5.00 / 5.00",
   },
 ];
+
+export const thesis = {
+  title: "Weighted Graph Mining (WeGM)",
+  summary:
+    "Undergraduate thesis: an algorithm that mines frequent subgraphs with edge weights from graph datasets, extending the gSpan algorithm with weighted graph mining.",
+  tech: ["Python", "Google Colab", "Jupyter Notebook", "DFS", "PubChem", "Kaggle"],
+};

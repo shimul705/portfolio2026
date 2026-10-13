@@ -1,62 +1,74 @@
-import { Navbar } from "../../components/layout/navbar";
+import type { Metadata } from "next";
+import { ContactCta } from "../../components/sections/contact-cta";
+import { Badge, Card, Container, PageHeader, SectionHeading } from "../../components/ui/primitives";
+import {
+  infrastructureIntro,
+  infrastructureStack,
+  infrastructureSummary,
+  shippingSteps,
+} from "../../lib/data/infrastructure";
+import type { InfrastructureComponent } from "../../types";
 
-const stack = [
-  { name: "GitLab CE", role: "Git hosting, issue tracking, and CI/CD pipelines" },
-  { name: "GitLab Runner", role: "Executes pipeline jobs in isolated Docker containers" },
-  { name: "OpenProject", role: "Task tracking and project management, per client" },
-  { name: "Docker & Docker Compose", role: "Isolated staging and production environments per project" },
-  { name: "Nginx Proxy Manager", role: "Reverse proxy and clean subdomain routing" },
-  { name: "MikroTik", role: "Network routing, DHCP, static DNS for internal domains" },
-  { name: "Tailscale", role: "Remote access to the home network without port forwarding" },
-  { name: "Cloudflare Tunnel", role: "Public access for client previews, no exposed ports" },
-];
+export const metadata: Metadata = {
+  title: "Infrastructure",
+  description:
+    "The self-hosted development platform Shimul Mahmud built and runs: GitLab CI/CD, Docker, Nginx, MikroTik, Tailscale and Cloudflare Tunnel.",
+};
+
+const layers: InfrastructureComponent["layer"][] = ["Source & CI/CD", "Runtime", "Networking & access", "Planning"];
 
 export default function InfrastructurePage() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="mb-2 text-2xl font-medium">Infrastructure</h1>
-        <p className="mb-10 text-sm" style={{ color: "var(--muted)" }}>
-          I built and run a self-hosted development platform from a single
-          home server: real GitLab CI/CD, isolated per-project environments,
-          and networking set up from scratch. Most frontend-focused
-          candidates haven&apos;t done this end to end. I have.
-        </p>
+    <>
+      <PageHeader
+        eyebrow="Infrastructure"
+        title="A self-hosted dev platform, built from scratch"
+        description={`${infrastructureIntro} Most frontend-focused candidates haven't done this end to end. I have.`}
+      />
 
-        <div className="space-y-3">
-          {stack.map((item) => (
-            <div
-              key={item.name}
-              className="flex items-start justify-between rounded-lg border p-4"
-              style={{ borderColor: "var(--card-border)" }}
-            >
-              <p className="text-sm font-medium">{item.name}</p>
-              <p
-                className="ml-4 max-w-xs text-right text-xs"
-                style={{ color: "var(--muted)" }}
-              >
-                {item.role}
-              </p>
-            </div>
-          ))}
-        </div>
+      <section className="py-16 sm:py-20">
+        <Container>
+          <SectionHeading eyebrow="Pipeline" title="How a project ships" description={infrastructureSummary} />
+          <ol className="grid gap-4 md:grid-cols-4">
+            {shippingSteps.map((step, i) => (
+              <li key={step.title}>
+                <Card className="relative h-full p-5">
+                  <span className="font-mono text-xs text-accent">STEP {String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-2 font-semibold">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{step.text}</p>
+                </Card>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
 
-        <div
-          className="mt-10 rounded-lg border p-5"
-          style={{ borderColor: "var(--card-border)" }}
-        >
-          <p className="mb-2 text-sm font-medium">How a project ships</p>
-          <p className="text-sm" style={{ color: "var(--muted)" }}>
-            Every client project gets its own isolated staging and production
-            containers, its own subdomain, and its own CI/CD pipeline. A push
-            to the main branch triggers an automatic deploy to staging for
-            review, then a manual promotion to production once approved —
-            the same workflow used at real software companies, running on
-            infrastructure I set up and maintain myself.
-          </p>
-        </div>
-      </main>
-    </div>
+      <section className="border-y border-border bg-surface py-16 sm:py-20">
+        <Container>
+          <SectionHeading eyebrow="Stack" title="What runs on the server" />
+          <div className="grid gap-5 md:grid-cols-2">
+            {layers.map((layer) => (
+              <Card key={layer} className="bg-background p-6">
+                <Badge tone="accent">{layer}</Badge>
+                <ul className="mt-5 divide-y divide-border">
+                  {infrastructureStack
+                    .filter((c) => c.layer === layer)
+                    .map((c) => (
+                      <li key={c.name} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                        <span className="font-medium">{c.name}</span>
+                        <span className="text-sm text-muted sm:max-w-[60%] sm:text-right">{c.role}</span>
+                      </li>
+                    ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <div className="mt-24">
+        <ContactCta />
+      </div>
+    </>
   );
 }
